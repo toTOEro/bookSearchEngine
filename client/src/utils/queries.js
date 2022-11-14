@@ -14,30 +14,28 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+export const QUERY_BOOKS = gql`
+  query getBooks {
+    books {
+      bookId
+      title
+      authors
+      description
+      image
+      link
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+export const QUERY_SINGLE_BOOK = gql`
+  query getSingleBook($bookId: ID!) {
+    book(bookId: $bookId) {
+      bookId
+      title
+      authors
+      description
+      image
+      link
     }
   }
 `;
@@ -48,11 +46,9 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+      savedBooks {
+        bookId
+        title
       }
     }
   }
